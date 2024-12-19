@@ -1,0 +1,19 @@
+# Python関連
+backend/venv/               # 仮想環境
+*.pyc                       # Pythonコンパイルファイル
+__pycache__/                # Pythonキャッシュディレクトリ
+
+# Node.js関連
+frontend/node_modules/      # Node.jsパッケージ
+frontend/build/             # Reactのビルド成果物
+
+# Docker関連
+*.env                       # 環境変数ファイル（後で利用する場合）
+*.log                       # ログファイル
+docker-compose.override.yml # ローカル用設定ファイル
+
+# OS・IDE関連
+.DS_Store                   # macOSのファイル
+*.swp                       # Vimの一時ファイル
+.idea/                      # JetBrains IDEの設定
+.vscode/                    # VSCodeの設定
