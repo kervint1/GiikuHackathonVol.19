@@ -7,22 +7,28 @@
 ### 1. プロジェクトをクローン
 ```
 git clone <リポジトリのURL>
-cd project_root
+cd GiikuHackathonVol.19
 ```
 
 ### 2. Docker Composeでサービスを起動
 ```
 docker-compose up --build -d
 ```
-### 3. Djangoのデータベースを初期化
+### 3. npmインストール
+```
+cd frontend 
+npm i 
+cd ..
+```
+### 4. Djangoのデータベースを初期化
 ```
 docker-compose exec backend python manage.py migrate
 ```
-### 4. 管理者ユーザーを作成（必要に応じて）
+### 5. 管理者ユーザーを作成（必要に応じて）
 ```
 docker-compose exec backend python manage.py createsuperuser
 ```
-### 5. ログ確認（必要に応じて）
+### 6. ログ確認（必要に応じて）
 ```
 docker-compose logs
 ```

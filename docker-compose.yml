@@ -16,7 +16,6 @@ services:
       - ./frontend:/app
   db:
     image: mysql:8
-    container_name: mysql_container
     ports:
       - "3306:3306"
     environment:
