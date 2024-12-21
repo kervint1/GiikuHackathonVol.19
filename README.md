@@ -56,38 +56,49 @@ docker-compose up --build -d
 - - -
 ## ディレクトリ構成
 ```
-Voice_record
-├── .github/
-├── backend/
-│   └── myapp/
-│       ├── __pycache__/
-│       ├── __init__.py
-│       ├── asgi.py
-│       ├── settings.py
-│       ├── urls.py
-│       ├── wsgi.py
-│       ├── .env.example
-│       ├── db.sqlite3
-│       ├── Dockerfile
-│       ├── manage.py
-│       └── requirements.txt
-├── frontend/
-│   ├── node_modules/
-│   ├── public/
+GIIKUHACKATHONVOL.19
+├── .github
+│   └── workflows
+│       └── ci.yml
+├── backend
+│   ├── media
+│   ├── myapp
+│   │   ├── __pycache__
+│   │   ├── migrations
+│   │   │   └── __init__.py
+│   │   ├── admin.py
+│   │   ├── asgi.py
+│   │   ├── models.py
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   ├── views.py
+│   │   ├── wsgi.py
+│   ├── .env
+│   ├── .env.example
+│   ├── Dockerfile
+│   ├── manage.py
+│   ├── requirements.txt
+├── frontend
+│   ├── node_modules
+│   ├── public
+│   ├── src
+│   │   ├── api.js
+│   │   ├── App.css
+│   │   ├── App.js
+│   │   ├── App.test.js
+│   │   ├── index.css
+│   │   ├── index.js
+│   │   ├── logo.svg
+│   │   ├── reportWebVitals.js
+│   │   ├── setupTests.js
 │   ├── .gitignore
 │   ├── Dockerfile
-│   ├── pakage-lock.json
+│   ├── package-lock.json
 │   ├── package.json
-│   └── src/
-│       ├── App.css
-│       ├── App.js
-│       ├── App.test.js
-│       ├── index.css
-│       ├── index.js
-│       ├── logo.svg
-│       ├── reportWebVitals.js
-│       └── setupTests.js
+│   ├── README.md
 ├── .gitignore
-└── docker-compose.yml
+├── docker-compose.yml
+├── README.md
+
 
 ```

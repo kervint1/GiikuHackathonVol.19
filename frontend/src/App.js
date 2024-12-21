@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef , useEffect} from 'react';
 
 function App() {
   const [isRecording, setIsRecording] = useState(false);
@@ -6,6 +6,17 @@ function App() {
   const [audioURL, setAudioURL] = useState(null);
   const [message, setMessage] = useState('');
   const mediaRecorderRef = useRef(null);
+  const [audioList, setAudioList] = useState([]); // 音声データのリスト
+
+  useEffect(() => {
+    // 音声データを取得
+    fetch('http://localhost:8000/api/list-audio/')
+      .then((response) => response.json())
+      .then((data) =>{
+        console.log(data);
+        setAudioList(data)})
+      .catch((error) => console.error('Error fetching audio list:', error));
+  }, []);
 
   const startRecording = async () => {
     try {
@@ -85,6 +96,15 @@ function App() {
         </div>
       )}
       <p>{message}</p>
+      <h2>Saved Audio Files</h2>
+      <ul>
+        {audioList.map((audio) => (
+          <li key={audio.id}>
+            <p>{audio.title}</p>
+            <audio controls src={`http://localhost:8000/media/${audio.file}`}></audio>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

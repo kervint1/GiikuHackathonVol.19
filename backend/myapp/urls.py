@@ -2,11 +2,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from myapp.views import upload_audio
+from myapp.views import upload_audio,list_audio
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/upload-audio/', upload_audio, name='upload-audio'),
+    path('api/list-audio/', list_audio, name='list-audio'),
 ]
 
 # urlpatterns の外側で static を追加

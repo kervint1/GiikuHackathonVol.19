@@ -16,3 +16,7 @@ def upload_audio(request):
         return JsonResponse({'message': 'File uploaded successfully', 'file_id': audio.id})
     
     return JsonResponse({'error': 'Invalid request'}, status=400)
+
+def list_audio(request):
+    audio_files = AudioFile.objects.all().values('id', 'file', 'title')  # 必要なフィールドを選択
+    return JsonResponse(list(audio_files), safe=False)
