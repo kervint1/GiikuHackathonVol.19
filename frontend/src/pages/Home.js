@@ -16,10 +16,15 @@ function Home() {
     fetchAudioList();
   }, []);
 
+  //音声リスト再取得
+  const handleUpload = () => {
+    fetchAudioList();
+  }
+
   return (
     <div>
       <h1>Voice Recorder</h1>
-      <Recorder onUpload={fetchAudioList} />
+      <Recorder onUpload={handleUpload} />
       <AudioList audioList={audioList} />
     </div>
   );

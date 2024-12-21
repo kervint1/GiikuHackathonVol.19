@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import './audio.css';
 
 function Recorder({ onUpload }) {
   const [isRecording, setIsRecording] = useState(false);
@@ -9,6 +10,7 @@ function Recorder({ onUpload }) {
 
   const [elapsedTime, setElapsedTime] = useState(0);  // 録音時間の管理
   const intervalRef = useRef(null);
+  const [title, setTitle] = useState('');  // 録音タイトル
 
   const startRecording = async () => {
     try {
@@ -84,11 +86,9 @@ function Recorder({ onUpload }) {
   return (
     <div>
       {!isRecording ? (
-        <button onClick={startRecording}>Start Recording</button>
+        <button onClick={startRecording} className='recording-button-stop'>Start Recording</button>
       ) : (
-        <button onClick={stopRecording}
-          style={{ backgroundColor: isRecording ? 'green' : 'red' }}
-          >Stop Recording</button>
+        <button onClick={stopRecording} className='recording-button'>Stop Recording</button>
       )}
       <div>
         {elapsedTime > 0 && isRecording && <p>録音時間: {elapsedTime}秒</p>} {/* 録音時間の表示 */}
@@ -96,6 +96,15 @@ function Recorder({ onUpload }) {
       {audioBlob && (
         <div>
           <p>Recording ready to upload or play.</p>
+          <label>
+            Title:
+            <input
+              type='text'
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder='Enter a title for the audio'
+            />
+          </label>
           <button onClick={uploadAudio}>Upload Recording</button>
           <audio controls src={audioURL}></audio>
         </div>
