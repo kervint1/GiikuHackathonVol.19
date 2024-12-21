@@ -21,5 +21,13 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y docker-compose
 
+    - name: Create .env file from secrets
+      run: |
+        echo "MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }}" >> backend/.env
+        echo "MYSQL_USER=${{ secrets.MYSQL_USER }}" >> backend/.env
+        echo "MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}" >> backend/.env
+        echo "MYSQL_HOST=${{ secrets.MYSQL_HOST }}" >> backend/.env
+        echo "MYSQL_PORT=${{ secrets.MYSQL_PORT }}" >> backend/.env
+
     - name: Build and start services
       run: docker-compose up --build -d
