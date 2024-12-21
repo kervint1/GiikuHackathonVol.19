@@ -6,7 +6,6 @@ body {
   padding: 0;
 }
 
-/* ヘッダーのスタイリング */
 header {
   background-color: blueviolet;
   color: white;
@@ -38,7 +37,6 @@ nav a:hover {
   color: #e6e6e6;
 }
 
-/* コンテンツのスタイリング */
 .container {
   max-width: 800px;
   margin: 20px auto;
@@ -46,6 +44,7 @@ nav a:hover {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 60px;
 }
 
 h2 {
@@ -54,7 +53,6 @@ h2 {
   font-size: 1.5em;
 }
 
-/* リストのスタイリング */
 ul {
   list-style: none;
   padding: 0;
@@ -84,20 +82,20 @@ audio {
 }
 
 .recording-button {
-    background-color: red;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    animation: blink 1s infinite;
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  animation: blink 1s infinite;
  }
 
 .recording-button-stop {
-    background-color: green;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
+  background-color: green;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
 }
 
 .upload-button {
@@ -147,7 +145,6 @@ audio {
   margin-left: 15px;
 }
 
-/* レスポンシブ対応 */
 @media (max-width: 768px) {
   .container {
       padding: 15px;
@@ -165,22 +162,27 @@ audio {
 
 
 /* ナビバー */
-/* components/navbar.css */
 .navbar {
-  background-color: #1da1f2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; 
+  background-color: blueviolet;
   color: white;
-  padding: 10px 20px;
+  padding: 10px 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  height: 40px;
 }
 
 .navbar-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  text-decoration: none;
+  width: 90%;
 }
 
 .navbar-logo {

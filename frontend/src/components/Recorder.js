@@ -86,9 +86,9 @@ function Recorder({ onUpload }) {
   return (
     <div>
       {!isRecording ? (
-        <button onClick={startRecording} className='recording-button-stop'>Start Recording</button>
+        <button onClick={startRecording} className='recording-button-stop'>録音開始</button>
       ) : (
-        <button onClick={stopRecording} className='recording-button'>Stop Recording</button>
+        <button onClick={stopRecording} className='recording-button'>停止</button>
       )}
       <div>
         {elapsedTime > 0 && isRecording && <p>録音時間: {elapsedTime}秒</p>} {/* 録音時間の表示 */}

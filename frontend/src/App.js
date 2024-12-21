@@ -4,16 +4,21 @@ import Home from './pages/Home';
 import About from './pages/About';
 import './components/Navbar'
 import './components/audio.css';
-import Navbar from './components/Navbar';
 
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/about' element={<About />} />
-      </Routes>
+      <div className="content">
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/about' element={<About />} />
+        </Routes>
+
+
+
+        <footer style={{ textAlign: 'center', padding: '20px', backgroundColor: '#f1f1f1' }}>
+      </footer>
+      </div>
     </Router>
   );
 }

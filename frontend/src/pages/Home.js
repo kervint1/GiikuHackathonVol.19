@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Recorder from '../components/Recorder';
 import AudioList from '../components/AudioList';
+import Navbar from '../components/Navbar';
 import '../components/audio.css';
 
 function Home() {
@@ -42,6 +43,7 @@ function Home() {
       <header className='header'>
         <h1>ボイスメモ</h1>
         <main className='main'>
+          <Navbar />
           <Recorder onUpload={handleUpload} />
           <AudioList audioList={audioList} onDelete={handleDelete} />
         </main>
