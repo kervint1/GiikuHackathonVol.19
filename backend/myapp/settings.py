@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-%dtkkm*=jmarte7)+-nu+3)3062@x_@5az=9rjb8$_tgv5fb8h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['voicerecordapp.onrender.com', 'localhost', '127.0.0.1']
+
 
 
 # Application definition
