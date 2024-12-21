@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Recorder from '../components/Recorder';
 import AudioList from '../components/AudioList';
+import '../components/audio.css';
 
 function Home() {
   const [audioList, setAudioList] = useState([]);
@@ -17,9 +18,9 @@ function Home() {
   }, []);
 
   //音声リスト再取得
-  const handleUpload = () => {
+  const handleUpload = useCallback(() => {
     fetchAudioList();
-  }
+  }, []);
 
   return (
     <div>

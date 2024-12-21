@@ -2,7 +2,7 @@ import React from 'react';
 
 function AudioList({ audioList }) {
   return (
-    <div>
+    <div className='container'>
       <h2>Saved Audio Files</h2>
       <ul>
         {audioList.map((audio) => (
