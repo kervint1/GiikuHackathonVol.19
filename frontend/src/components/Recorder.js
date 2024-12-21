@@ -7,6 +7,9 @@ function Recorder({ onUpload }) {
   const [message, setMessage] = useState('');
   const mediaRecorderRef = useRef(null);
 
+  const [elapsedTime, setElapsedTime] = useState(0);  // 録音時間の管理
+  const intervalRef = useRef(null);
+
   const startRecording = async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -28,7 +31,13 @@ function Recorder({ onUpload }) {
       };
 
       mediaRecorder.start();
+      setElapsedTime(0);  //録音時間の初期化
       setIsRecording(true);
+      setMessage('Recording...');
+
+      intervalRef.current = setInterval(() => {
+        setElapsedTime((prevTime) => prevTime + 1);
+      }, 1000);
     } catch (error) {
       console.error('Error accessing microphone:', error);
       setMessage('Error accessing microphone.');
@@ -39,6 +48,8 @@ function Recorder({ onUpload }) {
     if (mediaRecorderRef.current) {
       mediaRecorderRef.current.stop();
       setIsRecording(false);
+      setMessage('Recording stoped.');
+      clearInterval(intervalRef.current);
     }
   };
 
@@ -75,8 +86,13 @@ function Recorder({ onUpload }) {
       {!isRecording ? (
         <button onClick={startRecording}>Start Recording</button>
       ) : (
-        <button onClick={stopRecording}>Stop Recording</button>
+        <button onClick={stopRecording}
+          style={{ backgroundColor: isRecording ? 'green' : 'red' }}
+          >Stop Recording</button>
       )}
+      <div>
+        {elapsedTime > 0 && isRecording && <p>録音時間: {elapsedTime}秒</p>} {/* 録音時間の表示 */}
+      </div>
       {audioBlob && (
         <div>
           <p>Recording ready to upload or play.</p>
