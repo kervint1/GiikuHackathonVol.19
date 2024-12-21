@@ -4,7 +4,7 @@ import './audio.css';
 function AudioList({ audioList, onDelete }) {
   return (
     <div className='container'>
-      <h2>Saved Audio Files</h2>
+      <h2>すべての録音</h2>
       <ul>
         {audioList.map((audio) => (
           <li key={audio.id}>

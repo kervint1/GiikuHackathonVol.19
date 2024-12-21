@@ -40,7 +40,7 @@ function Home() {
   return (
     <div className='container'>
       <header className='header'>
-        <h1>Voice Recorder</h1>
+        <h1>ボイスメモ</h1>
         <main className='main'>
           <Recorder onUpload={handleUpload} />
           <AudioList audioList={audioList} onDelete={handleDelete} />
