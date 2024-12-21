@@ -53,3 +53,41 @@ docker-compose logs
 docker-compose down
 docker-compose up --build -d
 ```
+- - -
+## ディレクトリ構成
+```
+Voice_record
+├── .github/
+├── backend/
+│   └── myapp/
+│       ├── __pycache__/
+│       ├── __init__.py
+│       ├── asgi.py
+│       ├── settings.py
+│       ├── urls.py
+│       ├── wsgi.py
+│       ├── .env.example
+│       ├── db.sqlite3
+│       ├── Dockerfile
+│       ├── manage.py
+│       └── requirements.txt
+├── frontend/
+│   ├── node_modules/
+│   ├── public/
+│   ├── .gitignore
+│   ├── Dockerfile
+│   ├── pakage-lock.json
+│   ├── package.json
+│   └── src/
+│       ├── App.css
+│       ├── App.js
+│       ├── App.test.js
+│       ├── index.css
+│       ├── index.js
+│       ├── logo.svg
+│       ├── reportWebVitals.js
+│       └── setupTests.js
+├── .gitignore
+└── docker-compose.yml
+
+```
