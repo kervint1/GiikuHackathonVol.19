@@ -1,69 +1,26 @@
-/* 例: 録音中の赤いボタン */
 .recording-button {
     background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
     animation: blink 1s infinite;
  }
 
 .recording-button-stop {
     background-color: green;
-}
-
-  
-@keyframes blink {
-  0% { opacity: 1; }
-  50% { opacity: 0.7; }
-  100% { opacity: 1; }
-}
-  
-.timer {
-  font-size: 20px;
-  color: #333;
-}
-  
-.timer.running {
-  color: green;
-}
-
-@media (max-width: 600px) {
-  .recording-button {
-    width: 80%;
-    padding: 15px;
-    font-size: 18px;
-  }
-
-  .title-input {
-    width: 90%;
-    font-size: 16px;
-  }
-}
-
-/* 再生ボタンとアップロードボタン */
-.audio-controls {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
 }
 
 .upload-button {
-  background-color: #4CAF50;
+  background-color: #007bff;
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  border: none;
 }
 
-.upload-button:hover {
-  background-color: #45a049;
-}
-
-/* 成功メッセージ */
-.success-message {
-  color: green;
-  font-size: 16px;
-}
-
-/* エラーメッセージ */
-.error-message {
-  color: red;
-  font-size: 16px;
-}

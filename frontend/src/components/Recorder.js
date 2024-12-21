@@ -105,7 +105,7 @@ function Recorder({ onUpload }) {
               placeholder='Enter a title for the audio'
             />
           </label>
-          <button onClick={uploadAudio}>Upload Recording</button>
+          <button onClick={uploadAudio} className='upload-button'>Upload Recording</button>
           <audio controls src={audioURL}></audio>
         </div>
       )}
