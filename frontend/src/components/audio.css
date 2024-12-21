@@ -8,7 +8,7 @@ body {
 
 /* ヘッダーのスタイリング */
 header {
-  background-color: #1da1f2;
+  background-color: blueviolet;
   color: white;
   padding: 10px 20px;
   display: flex;
@@ -26,7 +26,7 @@ header h1 {
 }
 
 nav a {
-  color: white;
+  color: blasck;
   text-decoration: none;
   margin-left: 15px;
   font-weight: bold;
@@ -114,6 +114,21 @@ audio {
   background-color: white;
   padding: 15px;
   border-radius: 5px;
+}
+
+.delete-button {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 0.9em;
+}
+
+.delete-button:hover {
+  background-color: #ff7875;
 }
 
 ul {
