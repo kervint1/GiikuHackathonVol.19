@@ -1,0 +1,72 @@
+  .user-container {
+    margin-top: 40px;
+    background-color: blueviolet;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .main-content {
+    display: flex;
+    flex: 1;
+  }
+  
+  .sidebar {
+    width: 200px;
+    background-color: rgb(105, 11, 193);
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sidebar h2 {
+    margin-top: 0;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar ul li a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .sidebar ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .audio-list {
+    margin-top: 20px;
+  }
+  
+  .audio-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .audio-list ul li {
+    margin-bottom: 20px;
+  }
+  
+  .recording-button, .upload-button {
+    display: block;
+    margin: 10px 0;
+  }
+  
