@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import Recorder from '../components/Recorder';
 import AudioList from '../components/AudioList';
 import Navbar from '../components/Navbar';
-import './User.css';
+
 
 function User() {
   const [audioList, setAudioList] = useState([]);

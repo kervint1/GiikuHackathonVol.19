@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import Recorder from '../components/Recorder';
 import AudioList from '../components/AudioList';
 import Navbar from '../components/Navbar';
-import '../components/audio.css';
+import './Home.css';
 
 function Home() {
   const [audioList, setAudioList] = useState([]);
@@ -18,12 +18,10 @@ function Home() {
     fetchAudioList();
   }, []);
 
-  //音声リスト再取得
   const handleUpload = useCallback(() => {
     fetchAudioList();
   }, []);
 
-  // 投稿削除機能
   const handleDelete = useCallback((id) => {
     fetch(`http://localhost:8000/api/delete-audio/${id}/`, {
       method: 'DELETE',
@@ -38,19 +36,25 @@ function Home() {
           console.error('Failed to delete audio.');
         }
       })
-      .catch((error) => console.error('Error deleting audio:', error));    
+      .catch((error) => console.error('Error deleting audio:', error));
   }, []);
 
   return (
-    <div className='container'>
-      <header className='header'>
-        <h1>ボイスメモ</h1>
-        <main className='main'>
-          <Navbar />
+    <div className="user-container">
+      <Navbar />
+      <div className="main-content">
+        <aside className="sidebar">
+          <h2>メニュー</h2>
+          <ul>
+            <li><a href="/">ホーム</a></li>
+            <li><a href="/about">アバウト</a></li>
+          </ul>
+        </aside>
+        <section className="content">
           <Recorder onUpload={handleUpload} />
-          <AudioList audioList={audioList} onDelete={handleDelete} />
-        </main>
-      </header>
+          <AudioList audioList={audioList} setAudioList={setAudioList} onDelete={handleDelete} />
+        </section>
+      </div>
     </div>
   );
 }
