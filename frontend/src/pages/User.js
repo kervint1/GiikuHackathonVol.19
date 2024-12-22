@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import Recorder from '../components/Recorder';
 import AudioList from '../components/AudioList';
 import Navbar from '../components/Navbar';
+import UserAudioList from '../components/UserAudioList';
+
 
 
 function User() {
@@ -52,7 +54,7 @@ function User() {
         </aside>
         <section className="content">
           <Recorder onUpload={handleUpload} />
-          <AudioList audioList={audioList} onDelete={handleDelete} />
+          <UserAudioList audioList={audioList} onDelete={handleDelete} />
         </section>
       </div>
     </div>

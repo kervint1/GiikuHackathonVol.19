@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from myapp.views import upload_audio,list_audio,delete_audio,like_audio,unlike_audio,list_comments,add_comment
+from myapp.views import upload_audio,list_audio,delete_audio,like_audio,unlike_audio,list_comments,add_comment,list_user_audio
 from django.urls import include, path
 
 urlpatterns = [
@@ -15,6 +15,7 @@ urlpatterns = [
     path('api/unlike-audio/<int:id>/', unlike_audio, name='unlike-audio'),
     path('api/audio/<int:audio_id>/comments/', list_comments, name='list-comments'),
     path('api/audio/<int:audio_id>/add-comment/', add_comment, name='add-comment'),
+    path('api/user-audio/', list_user_audio, name='user-audio'),
 ]
 
 # urlpatterns の外側で static を追加

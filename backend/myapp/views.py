@@ -9,6 +9,12 @@ from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import get_object_or_404
 from .models import Comment
 
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def list_user_audio(request):
+    audio_files = AudioFile.objects.filter(user=request.user).values('id', 'file', 'title', 'user__username', 'likes')
+    return JsonResponse(list(audio_files), safe=False)
+
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def upload_audio(request):
