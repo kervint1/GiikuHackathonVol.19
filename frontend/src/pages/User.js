@@ -59,8 +59,4 @@ function User() {
   );
 }
 
-<<<<<<< HEAD
 export default User;
-=======
-export default User;
->>>>>>> e73d2999cdce8cea212072a981a2bb9233eb93df
