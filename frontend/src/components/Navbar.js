@@ -1,18 +1,39 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 
 function Navbar() {
+  const [username, setUsername] = useState(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    console.log('送信されるトークン:', token); // デバッグ用ログ
+
+    if (token) {
+      fetch('http://localhost:8000/api/auth/user/', {
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log('ユーザー情報:', data);
+          if (data.username) {
+            setUsername(data.username); // ユーザー名を設定
+          }
+        })
+        .catch((error) => console.error('ユーザー情報取得失敗:', error));
+    }
+  }, []);
+
   return (
     <header className='navbar'>
-        <div className='navbar-container'>
-            <Link to="/" className='navbar-logo'>
-                録音アプリ
-            </Link>
-            <nav className='navbar-links'>
-                <Link to="/">Home</Link>
-                <Link to="/about">About</Link>
-            </nav>
-        </div>
+      <div className='navbar-container'>
+        <a className='navbar-logo'>録音アプリ</a>
+        <nav className='navbar-links'>
+          <a href="/">ホーム</a>
+          <a href="/about">About</a>
+          {username ? <span>こんにちは, {username}</span> : <a href="/login">ログイン</a>}
+        </nav>
+      </div>
     </header>
   );
 }

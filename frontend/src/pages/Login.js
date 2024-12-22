@@ -10,18 +10,24 @@ function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
+  
+    if (!username || !password) {
+      setError('Username and password are required.');
+      return;
+    }
+  
     try {
       const response = await fetch('http://localhost:8000/api/auth/login/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
       });
-
+  
       const data = await response.json();
-
+  
       if (response.ok) {
-        localStorage.setItem('token', data.access_token);
+        localStorage.setItem('token', data.key); // トークンを保存
+        console.log('保存されたトークン:', data.key); // デバッグ用ログ
         navigate('/'); // ホームページにリダイレクト
       } else {
         setError(data.non_field_errors || 'Invalid credentials');
@@ -31,6 +37,7 @@ function Login() {
       setError('An error occurred. Please try again.');
     }
   };
+  
 
   return (
     <div className="login-container">

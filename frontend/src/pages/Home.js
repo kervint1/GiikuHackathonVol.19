@@ -27,6 +27,9 @@ function Home() {
   const handleDelete = useCallback((id) => {
     fetch(`http://localhost:8000/api/delete-audio/${id}/`, {
       method: 'DELETE',
+      headers: {
+        Authorization: `Token ${localStorage.getItem('token')}`,
+      },
     })
       .then((response) => {
         if (response.ok) {
@@ -35,7 +38,7 @@ function Home() {
           console.error('Failed to delete audio.');
         }
       })
-      .catch((error) => console.error('Error deleting audio:', error));
+      .catch((error) => console.error('Error deleting audio:', error));    
   }, []);
 
   return (

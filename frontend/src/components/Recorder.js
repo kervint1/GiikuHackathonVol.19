@@ -56,32 +56,43 @@ function Recorder({ onUpload }) {
   };
 
   const uploadAudio = async () => {
-    if (!audioBlob) {
-      setMessage('No audio to upload.');
+    const token = localStorage.getItem('token'); // 保存したトークンを取得
+    console.log('送信するトークン:', token); // デバッグ用ログ
+    if (!token) {
+      setMessage('ログインが必要です。');
       return;
     }
-
+  
     const formData = new FormData();
     formData.append('file', audioBlob, 'recording.webm');
-    formData.append('title', 'Recorded Audio');
-
+    formData.append('title', title || 'Recorded Audio');
+  
     try {
       const response = await fetch('http://localhost:8000/api/upload-audio/', {
         method: 'POST',
+        headers: {
+          Authorization: `Token ${token}`, // トークンをヘッダーに追加
+        },
         body: formData,
       });
-      const data = await response.json();
+  
       if (response.ok) {
-        setMessage('Audio uploaded successfully: ' + data.file_id);
-        onUpload(); // データ更新のトリガー
+        const data = await response.json();
+        setMessage('アップロード成功: ' + data.file_id);
+        onUpload(); // リストを更新
       } else {
-        setMessage('Error: ' + data.error);
+        const errorText = await response.text();
+        console.error('アップロード失敗:', errorText);
+        setMessage('アップロード失敗: ' + errorText);
       }
     } catch (error) {
-      console.error('Error uploading audio:', error);
-      setMessage('Error uploading audio.');
+      console.error('アップロードエラー:', error);
+      setMessage('アップロードエラー');
     }
   };
+  
+  
+  
 
   return (
     <div>

@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from myapp.views import upload_audio,list_audio
+from myapp.views import upload_audio,list_audio,delete_audio
 from django.urls import include, path
 
 urlpatterns = [
@@ -10,6 +10,7 @@ urlpatterns = [
     path('api/upload-audio/', upload_audio, name='upload-audio'),
     path('api/list-audio/', list_audio, name='list-audio'),
     path('api/auth/', include('dj_rest_auth.urls')),
+    path('api/delete-audio/<int:id>/', delete_audio, name='delete-audio'),
 ]
 
 # urlpatterns の外側で static を追加
