@@ -1,8 +1,10 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
+from django.db import models
 
-class Account(models.Model):
-    username = models.CharField(max_length=150, unique=True)
+class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
+    # 必要に応じて追加フィールド
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

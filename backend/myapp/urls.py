@@ -3,11 +3,13 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from myapp.views import upload_audio,list_audio
+from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/upload-audio/', upload_audio, name='upload-audio'),
     path('api/list-audio/', list_audio, name='list-audio'),
+    path('api/auth/', include('dj_rest_auth.urls')),
 ]
 
 # urlpatterns の外側で static を追加
