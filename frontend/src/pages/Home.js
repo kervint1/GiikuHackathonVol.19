@@ -48,6 +48,7 @@ function Home() {
           <ul>
             <li><a href="/">ホーム</a></li>
             <li><a href="/about">アバウト</a></li>
+            <li><a href="/user">マイページ</a></li>
           </ul>
         </aside>
         <section className="content">
