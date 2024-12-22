@@ -34,7 +34,7 @@ function Navbar() {
   return (
     <header className='navbar'>
       <div className='navbar-container'>
-        <a className='navbar-logo'>録音アプリ</a>
+        <a className='navbar-logo'>歌レコ</a>
         <nav className='navbar-links'>
           {username ? <span>こんにちは, {username}　</span> : <a href="/login">ログイン</a>}
           <button onClick={handleLogout} className="btn btn-light">ログアウト</button>

@@ -71,3 +71,16 @@
     margin: 10px 0;
   }
   
+  .comments {
+    margin-top: 10px;
+  }
+  
+  .comments ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .comments li {
+    margin-bottom: 5px;
+  }
+  

@@ -7,6 +7,7 @@ import json
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import get_object_or_404
+from .models import Comment
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
@@ -52,3 +53,18 @@ def unlike_audio(request, id):
         audio.likes -= 1
         audio.save()
     return JsonResponse({'message': 'Audio unliked', 'likes': audio.likes})
+
+@api_view(['GET'])
+def list_comments(request, audio_id):
+    comments = Comment.objects.filter(audio_id=audio_id).values('id', 'user__username', 'text', 'created_at')
+    return JsonResponse(list(comments), safe=False)
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def add_comment(request, audio_id):
+    audio = get_object_or_404(AudioFile, id=audio_id)
+    text = request.data.get('text')
+    if text:
+        comment = Comment.objects.create(audio=audio, user=request.user, text=text)
+        return JsonResponse({'id': comment.id, 'user': request.user.username, 'text': comment.text, 'created_at': comment.created_at}, status=201)
+    return JsonResponse({'error': 'Text is required'}, status=400)
