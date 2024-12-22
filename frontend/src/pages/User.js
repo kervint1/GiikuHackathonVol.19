@@ -53,6 +53,7 @@ function User() {
           </ul>
         </aside>
         <section className="content">
+          <h1>マイページ</h1>
           <Recorder onUpload={handleUpload} />
           <UserAudioList audioList={audioList} onDelete={handleDelete} />
         </section>
