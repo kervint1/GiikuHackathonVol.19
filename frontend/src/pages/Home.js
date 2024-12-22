@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Recorder from '../components/Recorder';
 import AudioList from '../components/AudioList';
+import Navbar from '../components/Navbar';
 import '../components/audio.css';
 
 function Home() {
@@ -22,11 +23,31 @@ function Home() {
     fetchAudioList();
   }, []);
 
+  // 投稿削除機能
+  const handleDelete = useCallback((id) => {
+    fetch(`http://localhost:8000/api/delete-audio/${id}/`, {
+      method: 'DELETE',
+    })
+      .then((response) => {
+        if (response.ok) {
+          setAudioList((prevList) => prevList.filter((audio) => audio.id !== id));
+        } else {
+          console.error('Failed to delete audio.');
+        }
+      })
+      .catch((error) => console.error('Error deleting audio:', error));
+  }, []);
+
   return (
-    <div>
-      <h1>Voice Recorder</h1>
-      <Recorder onUpload={handleUpload} />
-      <AudioList audioList={audioList} />
+    <div className='container'>
+      <header className='header'>
+        <h1>ボイスメモ</h1>
+        <main className='main'>
+          <Navbar />
+          <Recorder onUpload={handleUpload} />
+          <AudioList audioList={audioList} onDelete={handleDelete} />
+        </main>
+      </header>
     </div>
   );
 }

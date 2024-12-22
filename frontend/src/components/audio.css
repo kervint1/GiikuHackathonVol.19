@@ -6,9 +6,8 @@ body {
   padding: 0;
 }
 
-/* ヘッダーのスタイリング */
 header {
-  background-color: #1da1f2;
+  background-color: blueviolet;
   color: white;
   padding: 10px 20px;
   display: flex;
@@ -26,7 +25,7 @@ header h1 {
 }
 
 nav a {
-  color: white;
+  color: blasck;
   text-decoration: none;
   margin-left: 15px;
   font-weight: bold;
@@ -38,7 +37,6 @@ nav a:hover {
   color: #e6e6e6;
 }
 
-/* コンテンツのスタイリング */
 .container {
   max-width: 800px;
   margin: 20px auto;
@@ -46,6 +44,7 @@ nav a:hover {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 60px;
 }
 
 h2 {
@@ -54,7 +53,6 @@ h2 {
   font-size: 1.5em;
 }
 
-/* リストのスタイリング */
 ul {
   list-style: none;
   padding: 0;
@@ -84,20 +82,20 @@ audio {
 }
 
 .recording-button {
-    background-color: red;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    animation: blink 1s infinite;
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  animation: blink 1s infinite;
  }
 
 .recording-button-stop {
-    background-color: green;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
+  background-color: green;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
 }
 
 .upload-button {
@@ -116,6 +114,21 @@ audio {
   border-radius: 5px;
 }
 
+.delete-button {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 0.9em;
+}
+
+.delete-button:hover {
+  background-color: #ff7875;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -132,7 +145,6 @@ audio {
   margin-left: 15px;
 }
 
-/* レスポンシブ対応 */
 @media (max-width: 768px) {
   .container {
       padding: 15px;
@@ -146,4 +158,48 @@ audio {
   nav a {
       margin: 10px 0;
   }
+}
+
+
+/* ナビバー */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; 
+  background-color: blueviolet;
+  color: white;
+  padding: 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  height: 40px;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  width: 90%;
+}
+
+.navbar-logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-links a {
+  margin-left: 15px;
+  color: white;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.navbar-links a:hover {
+  text-decoration: underline;
 }
